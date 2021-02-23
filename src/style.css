@@ -52,7 +52,45 @@ body {
     justify-content: space-between;
 }
 
+/**
+* PC端，平均布局
+**/
+@media(min-width: 500px) {
+    .globalHeader {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .globalMain {
+        max-width: 900px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .globalMain .siteList {
+        margin-right: -37.5px;
+        justify-content: start;
+        flex-wrap: wrap;
+        
+        
+    }
+    .siteList>li{
+        margin-right: 37.5px;
+        margin-top: 20px;
+    }
+
+    .siteList .site{
+        cursor: pointer;
+    }
+
+    .siteList .site .close {
+        cursor: default;
+    }
+}
+
 .siteList>li{
+    width: 150px;
     margin-bottom: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -60,7 +98,6 @@ body {
 }
 
 .siteList .site{
-    width: 150px;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -96,7 +133,6 @@ body {
 }
 .siteList .addButton {
     padding: 20px 0;
-    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
