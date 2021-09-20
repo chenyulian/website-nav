@@ -4,7 +4,12 @@
 *{margin:0;padding: 0;}
 ul,ol{list-style: none;}
 
-/* iconfont set */
+/* common */
+:root {
+    --color-base: pink;
+}
+
+/* iconfont settings */
 .icon {
     width: 1em; height: 1em;
     vertical-align: -0.15em;
@@ -22,7 +27,7 @@ body {
     margin: 20px;
 }
 
-.globalHeader > input {
+input {
     width: 100%;
     margin-right: 20px;
     height: 40px;
@@ -31,7 +36,7 @@ body {
     border-radius: 4px;
 }
 
-.globalHeader > button {
+button {
     white-space: nowrap;
     padding: 0 28px;
     border:none;
@@ -42,6 +47,9 @@ body {
     font-size: 16px;
 }
 
+button:hover {
+    cursor: pointer;
+}
 .globalMain{
     margin: 20px;
     /* border: 1px solid yellow */

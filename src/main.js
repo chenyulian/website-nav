@@ -1,3 +1,5 @@
+import { Modal } from "./lib/modal.js";
+
 const $addIcon = $(".icon");
 
 const saveToLocalStorage = function (siteListString) {
@@ -76,45 +78,50 @@ saveToLocalStorage(siteListString);
 render(siteList);
 
 $addIcon.on("click", () => {
-  let eleDomTarget = document.getElementById("siteInfo");
-  let objDomDialog;
-  // 如果已经弹框打开过，就直接显示
-  //if (objDomDialog) {
-  //  objDomDialog.show();
-  //} else {
-  eleDomTarget.style.display = "block";
-  objDomDialog = new Dialog({
-    title: "站点信息",
-    content: eleDomTarget,
-    buttons: [
-      {
-        events: () => {
-          let siteTitle = $("input#siteName").val();
-          let siteUrl = $("input#siteUrl").val();
-          let siteDesc = $("input#siteDesc").val();
-          let logo = siteTitle[0] || siteUrl[0];
-          siteList.push({
-            logo: logo,
-            title: siteTitle,
-            desc: siteDesc,
-            link: siteUrl,
-          });
-          render(siteList);
-          siteListString = JSON.stringify(siteList);
-          saveToLocalStorage(siteListString);
-
-          $("input#siteName").val("");
-          $("input#siteUrl").val("");
-          $("input#siteDesc").val("");
-          objDomDialog.hide();
-        },
-      },
-      {
-        events: () => {
-          objDomDialog.hide();
-        },
-      },
-    ],
-  });
-  //}
+  Modal.init();
 });
+// $addIcon.on("click", () => {
+// let eleDomTarget = document.getElementById("siteInfo");
+// let objDomDialog;
+// 如果已经弹框打开过，就直接显示
+//if (objDomDialog) {
+//  objDomDialog.show();
+//} else {
+// eleDomTarget.style.display = "block";
+// objDomDialog = new Dialog({
+//   title: "站点信息",
+//   content: eleDomTarget,
+//   buttons: [
+//     {
+//       events: () => {
+//         let siteTitle = $("input#siteName").val();
+//         let siteUrl = $("input#siteUrl").val();
+//         let siteDesc = $("input#siteDesc").val();
+//         let logo = siteTitle[0] || siteUrl[0];
+//         siteList.push({
+//           logo: logo,
+//           title: siteTitle,
+//           desc: siteDesc,
+//           link: siteUrl,
+//         });
+//         render(siteList);
+//         siteListString = JSON.stringify(siteList);
+//         saveToLocalStorage(siteListString);
+
+//         $("input#siteName").val("");
+//         $("input#siteUrl").val("");
+//         $("input#siteDesc").val("");
+//         objDomDialog.hide();
+//       },
+//     },
+//     {
+//       events: () => {
+//         objDomDialog.hide();
+//       },
+//     },
+//   ],
+// });
+//}
+// });
+
+//
