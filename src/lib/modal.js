@@ -1,5 +1,5 @@
 export const Modal = {
-  template: `<div class="dialog-overlay" id="dialog-overlay"></div>
+  html: `<div class="dialog-overlay" id="dialog-overlay"></div>
         <div class="dialog-wrapper">
             <div class="dialog">
                 <header>站点信息<span class="dialog-close" id="dialog-close"></span></header>
@@ -37,27 +37,28 @@ export const Modal = {
         </div>`,
   el: null,
   init() {
-    this.el = $(this.template);
+    this.el = $(this.html);
+    return this.el;
+  },
+  render() {
     $("body").append(this.el);
     this.registerEventListeners();
   },
-  render() {},
   registerEventListeners() {
     $("#dialog-close").click(() => {
-      this.el.remove();
+      this.unmount();
     });
     $("#add-site").click(() => {
-      console.log(123);
+      this.el.find("#add-site").trigger("addNewSite");
     });
     $("#cancel-add-site").click(() => {
-      this.el.remove();
+      this.unmount();
     });
     $("#dialog-overlay").click(() => {
-      this.el.remove();
+      this.unmount();
     });
   },
-  destroy() {
+  unmount() {
     this.el.remove();
-    this.el = null;
   },
 };

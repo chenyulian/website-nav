@@ -53,13 +53,11 @@ const render = function (siteList) {
                     </div>
                    </li>`);
     $site.click(() => {
-      //console.log(siteList[i].link);
       window.open(siteList[i].link, "_blank");
     });
 
     $site.on("click", ".close", (e) => {
       e.stopPropagation();
-      // console.log(e);
       siteList.splice(i, 1);
       render(siteList);
       saveToLocalStorage(JSON.stringify(siteList));
@@ -77,51 +75,29 @@ saveToLocalStorage(siteListString);
 // 渲染列表
 render(siteList);
 
-$addIcon.on("click", () => {
-  Modal.init();
+// 创建模态框
+const modal = Modal.init();
+modal.find("#add-site").on("addNewSite", (e) => {
+  let siteTitle = $("input#siteName").val();
+  let siteUrl = $("input#siteUrl").val();
+  let siteDesc = $("input#siteDesc").val();
+  let logo = siteTitle[0] || siteUrl[0];
+
+  console.log(siteTitle, siteUrl, siteDesc, logo);
+
+  siteList.push({
+    logo: logo,
+    title: siteTitle,
+    desc: siteDesc,
+    link: siteUrl,
+  });
+  render(siteList);
+  siteListString = JSON.stringify(siteList);
+  saveToLocalStorage(siteListString);
+
+  Modal.unmount();
 });
-// $addIcon.on("click", () => {
-// let eleDomTarget = document.getElementById("siteInfo");
-// let objDomDialog;
-// 如果已经弹框打开过，就直接显示
-//if (objDomDialog) {
-//  objDomDialog.show();
-//} else {
-// eleDomTarget.style.display = "block";
-// objDomDialog = new Dialog({
-//   title: "站点信息",
-//   content: eleDomTarget,
-//   buttons: [
-//     {
-//       events: () => {
-//         let siteTitle = $("input#siteName").val();
-//         let siteUrl = $("input#siteUrl").val();
-//         let siteDesc = $("input#siteDesc").val();
-//         let logo = siteTitle[0] || siteUrl[0];
-//         siteList.push({
-//           logo: logo,
-//           title: siteTitle,
-//           desc: siteDesc,
-//           link: siteUrl,
-//         });
-//         render(siteList);
-//         siteListString = JSON.stringify(siteList);
-//         saveToLocalStorage(siteListString);
 
-//         $("input#siteName").val("");
-//         $("input#siteUrl").val("");
-//         $("input#siteDesc").val("");
-//         objDomDialog.hide();
-//       },
-//     },
-//     {
-//       events: () => {
-//         objDomDialog.hide();
-//       },
-//     },
-//   ],
-// });
-//}
-// });
-
-//
+$addIcon.on("click", () => {
+  Modal.render();
+});
