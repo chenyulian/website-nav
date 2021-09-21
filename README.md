@@ -1,7 +1,8 @@
 # Website-nav
-My website navigation.
+个人自定义网站导航。
 
-kpt的网站导航，用来收藏个人觉得有用、有趣的站点。
+# 预览
+[点击预览](https://chenyulian.github.io/website-nav/src/index.html)
 
 # To Do
 - [x] 搜索功能
