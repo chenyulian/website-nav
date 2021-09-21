@@ -85,14 +85,13 @@ render(siteList);
 
 // 创建模态框
 const modal = Modal.init();
-modal.find("#add-site").on("addNewSite", (e) => {
+modal.find("#add-site").on("addNewSite", addNewSite);
+
+function addNewSite() {
   let siteTitle = $("input#siteName").val();
   let siteUrl = $("input#siteUrl").val();
   let siteDesc = $("input#siteDesc").val();
   let logo = siteTitle[0] || siteUrl[0];
-
-  console.log(siteTitle, siteUrl, siteDesc, logo);
-
   siteList.push({
     logo: logo,
     title: siteTitle,
@@ -104,10 +103,11 @@ modal.find("#add-site").on("addNewSite", (e) => {
   saveToLocalStorage(siteListString);
 
   Modal.unmount();
-});
+}
 
 $addIcon.on("click", () => {
   Modal.render();
+  modal.find("#add-site").on("addNewSite", addNewSite);
 });
 
 $("input#filter").on("input", (e) => {

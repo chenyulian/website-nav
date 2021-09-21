@@ -59,6 +59,9 @@ export const Modal = {
     });
   },
   unmount() {
+    $("input#siteName").val("");
+    $("input#siteUrl").val("");
+    $("input#siteDesc").val("");
     this.el.remove();
   },
 };

@@ -58,6 +58,11 @@ button:hover {
     background: none;
 }
 
+.siteList > li {
+    width: 150px;
+    height: 150px;
+}
+
 /**
 * PC端，平均布局
 **/
@@ -65,7 +70,6 @@ button:hover {
     .globalHeader {
         /* max-width: 500px; */
         width: 100%;
-        
     }
 
     .globalHeader > input {
