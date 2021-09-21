@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "HarmonyOS_Sans_Regular";
+    src: url("../assets/font/HarmonyOS_Sans_Regular.ttf");
+}
+
+@font-face {
+    font-family: "HarmonyOS_Sans_Bold";
+    src: url("../assets/font/HarmonyOS_Sans_Bold.ttf");
+}
+
+/* CSS Reset */
+*{box-sizing: border-box;}
+*:before, *:after{box-sizing: border-box;} 
+*{margin:0;padding: 0;}
+ul,ol{list-style: none;}
+
+/* common */
+:root {
+    --color-base: #F4D5B0;
+    --color-border:  #7B519A;
+}
+
+body {
+    font-family: "HarmonyOS_Sans_Regular";
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}

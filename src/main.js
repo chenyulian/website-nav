@@ -46,9 +46,9 @@ const render = function (siteList) {
                       <div class="title">${siteList[i].title}</div>
                       <div class="desc">${siteList[i].desc}</div>
                       <div class="close">
-                        <svg class="icon" aria-hidden="true">
-                          <use xlink:href="#icon-baseline-close-px"></use>
-                        </svg>
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-delete"></use>
+                      </svg>
                       </div>
                     </div>
                    </li>`);

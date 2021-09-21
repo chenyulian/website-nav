@@ -1,14 +1,4 @@
-/* CSS Reset */
-*{box-sizing: border-box;}
-*:before, *:after{box-sizing: border-box;} 
-*{margin:0;padding: 0;}
-ul,ol{list-style: none;}
-
-/* common */
-:root {
-    --color-base: pink;
-}
-
+/* @import url('../style/common.css'); */
 /* iconfont settings */
 .icon {
     width: 1em; height: 1em;
@@ -19,7 +9,8 @@ ul,ol{list-style: none;}
 
 /* style */
 body {
-    background: #eee;
+    /* background: #eee; */
+    background: #fff;
 }
 .globalHeader {
     display: flex;
@@ -32,8 +23,9 @@ input {
     margin-right: 20px;
     height: 40px;
     padding: 0 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #d9d9d9;
     border-radius: 4px;
+    color: #999;
 }
 
 button {
@@ -41,10 +33,11 @@ button {
     padding: 0 28px;
     border:none;
     /* background: #0282B9; */
-    background: pink;
-    color: white;
+    background: var(--color-base);
+    color: var(--color-border);
     border-radius: 4px;
     font-size: 16px;
+    font-weight: 600;
 }
 
 button:hover {
@@ -52,7 +45,6 @@ button:hover {
 }
 .globalMain{
     margin: 20px;
-    /* border: 1px solid yellow */
 }
 
 .siteList{
@@ -86,13 +78,10 @@ button:hover {
         justify-content: start;
         flex-wrap: wrap;
     }
-    .siteList>li{
+    .siteList > li {
+        position: relative;
         margin-right: 37.5px;
         margin-top: 20px;
-    }
-
-    .siteList>li:hover{
-        border: 1px solid pink;
     }
 
     .siteList .site{
@@ -100,8 +89,12 @@ button:hover {
     }
 
     .siteList .site .close { 
-        cursor: default;
+        cursor: pointer;
         display: none;
+    }
+
+    .siteList .site .close .icon { 
+        animation: fade .25s cubic-bezier(0,0,0.25,1);
     }
 
     .siteList .site:hover .close {
@@ -109,12 +102,22 @@ button:hover {
     }
 }
 
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
 .siteList>li{
     width: 150px;
     margin-bottom: 10px;
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
 }
 
 .siteList .site{
@@ -134,30 +137,37 @@ button:hover {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: pink;
+    background: var(--color-base);
     line-height: 48px;
     font-size: 24px;
-    color:white;
+    color:var(--color-border);
+    font-family: "HarmonyOS_Sans_Bold";
 }
 
 .siteList .site > .title{
     font-size: 14px;
     margin-top: 4px;
-    color: #333;
+    color: #3e3e3e;
+    /* color: var(--color-base); */
+    font-family: "HarmonyOS_Sans_Bold";
 }
 
 .siteList .site > .desc{
     font-size: 12px;
     margin-top: 4px;
-    color: #666;
+    color: #999;
+    /* color: var(--color-base); */
     padding: 5px 10px;
+    /* font-family: "HarmonyOS_Sans_Light";; */
 }
 
 .siteList .site .icon{
-    font-size: 20px;
+    font-size: 24px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -8px;
+    right: -8px;
+    background-color: var(--color-border);
+    border-radius: 50%;
 }
 .siteList .addButton {
     padding: 20px 0;
@@ -170,17 +180,13 @@ button:hover {
 .siteList .addButton .icon {
     width: 48px;
     height: 48px;
-    color: pink;
+    color:var(--color-base);
 }
 
 .siteList .addButton .text {
     font-size: 14px;
     margin-top: 15px;
-    color: #666;
-}
-
-.siteList .site .close { 
-    color: pink;
+    color: #999;
 }
 
 #siteInfo {
