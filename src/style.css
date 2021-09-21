@@ -54,14 +54,29 @@ button:hover {
     justify-content: space-between;
 }
 
+.globalHeader > button {
+    background: none;
+}
+
 /**
 * PC端，平均布局
 **/
 @media(min-width: 500px) {
     .globalHeader {
+        /* max-width: 500px; */
+        width: 100%;
+        
+    }
+
+    .globalHeader > input {
         max-width: 500px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .globalHeader > button {
+        margin-right: 10px;
+        margin-top: -20px;
     }
 
     .globalHeader > input:focus {
@@ -170,24 +185,34 @@ button:hover {
     background-color: var(--color-border);
     border-radius: 50%;
 }
+
+.siteList li:last-child {
+    background: var(--color-base);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: var(--color-base);
+}
 .siteList .addButton {
     padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: "HarmonyOS_Sans_Bold";
 }
 
 .siteList .addButton .icon {
     width: 48px;
     height: 48px;
-    color:var(--color-base);
+    color:var(--color-border);
 }
 
 .siteList .addButton .text {
     font-size: 14px;
     margin-top: 15px;
-    color: #999;
+    color: var(--color-border);
+    font-weight: 600;
 }
 
 #siteInfo {

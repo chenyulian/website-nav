@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: space-between;
     font-size: 20px;
+    font-family: "HarmonyOS_Sans_Bold";
 }
 
 .dialog > main {

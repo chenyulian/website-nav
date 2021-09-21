@@ -1,5 +1,13 @@
 import { Modal } from "./lib/modal.js";
 
+const themes = [
+  { base: "#F4D5B0", border: "#7B519A" },
+  { base: "#F15A29", border: "#321C3B" },
+  { base: "#561F74", border: "#84CEA4" },
+  { base: "#591F75", border: "#B5B1FF" },
+  { base: "#AAFFDD", border: "#8B98FF" },
+];
+
 const $addIcon = $(".icon");
 
 const saveToLocalStorage = function (siteListString) {
@@ -47,7 +55,7 @@ const render = function (siteList) {
                       <div class="desc">${siteList[i].desc}</div>
                       <div class="close">
                       <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-delete"></use>
+                        <use xlink:href="#icon-delete1"></use>
                       </svg>
                       </div>
                     </div>
@@ -109,3 +117,22 @@ $("input#filter").on("input", (e) => {
     )
   );
 });
+
+let themeIndex = localStorage.getItem("themeIndex") || 0;
+setTheme();
+$("button#change-theme").on("click", () => {
+  themeIndex++;
+  setTheme();
+  localStorage.setItem("themeIndex", themeIndex % 5);
+});
+
+function setTheme() {
+  document.documentElement.style.setProperty(
+    "--color-base",
+    themes[themeIndex % 5].base
+  );
+  document.documentElement.style.setProperty(
+    "--color-border",
+    themes[themeIndex % 5].border
+  );
+}
