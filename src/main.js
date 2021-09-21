@@ -101,3 +101,11 @@ modal.find("#add-site").on("addNewSite", (e) => {
 $addIcon.on("click", () => {
   Modal.render();
 });
+
+$("input#filter").on("input", (e) => {
+  render(
+    siteList.filter(
+      (i) => i.title.toUpperCase().indexOf(e.target.value.toUpperCase()) >= 0
+    )
+  );
+});
